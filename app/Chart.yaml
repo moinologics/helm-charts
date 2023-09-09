@@ -1,0 +1,11 @@
+apiVersion: v2
+name: app
+description: A Helm chart for Kubernetes
+
+type: application
+
+icon: "https://cdn-icons-png.flaticon.com/512/5929/5929385.png"
+
+version: 0.1.1
+
+appVersion: "1.16.0"

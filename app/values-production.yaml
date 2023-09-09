@@ -1,0 +1,35 @@
+##### deployment values ######
+name: bitwise-api-gateway
+namespace: micro-services
+port: 8080
+
+##### container values ######
+image: registry.darkmode.tk/bitwise-api-gateway:production
+replicaCount: 1
+memoryRequests: 64Mi
+memoryLimits: 512Mi
+cpuRequests: 50m
+cpuLimits: 500m
+
+##### HPA values ######
+averageUtilization: 90
+minReplicas: 1
+maxReplicas: 3
+
+##### Ingress values #######
+host: api.darkmode.tk
+tlsSecret: api-darkmode-tls-secret
+clusterIssuer: letsencrypt-production
+
+##### Environment values ######
+environment: production
+USAGE_DISABLE: 1
+
+env:
+  - name: USAGE_DISABLE
+    value: 1
+  - name: ELASTIC_APM_SERVER_URL
+    valueFrom:
+      secretKeyRef:
+        name: "some-secret"
+        key: ELASTIC_APM_SERVER_URL
