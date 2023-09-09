@@ -1,3 +1,4 @@
+{{ if hasKey .Values "host" }}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -24,3 +25,4 @@ spec:
   - hosts:
       - {{.Values.host}}
     secretName: {{.Values.tlsSecret}}
+{{ end }}

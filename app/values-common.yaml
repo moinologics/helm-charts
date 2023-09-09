@@ -1,0 +1,8 @@
+plainEnvs:
+  - name: PLAIN_ENV
+    value: "{{.Values.PLAIN_ENV}}"
+
+secretEnvs:
+  - name: SECRET_ENV
+    secretName: "{{.Values.envSecretName}}"
+    secretKey: SECRET_KEY

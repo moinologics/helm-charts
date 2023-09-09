@@ -1,0 +1,27 @@
+##### deployment values ######
+name: service-name
+namespace: default
+port: 80
+envSecretName: some-secret-name
+
+##### container values ######
+image: nginx
+replicaCount: 1
+memoryRequests: 64Mi
+memoryLimits: 512Mi
+cpuRequests: 50m
+cpuLimits: 500m
+
+##### Ingress values #######
+host: example.com
+tlsSecret: some-tls-secret
+clusterIssuer: your-cluster-issuer
+
+##### HPA values ######
+averageUtilization: 90
+minReplicas: 1
+maxReplicas: 3
+
+##### Environment values ######
+environment: production
+PLAIN_ENV: some-non-secret-value

@@ -28,6 +28,21 @@ spec:
             limits:
               memory: {{.Values.memoryLimits}}
               cpu: {{.Values.cpuLimits}}
-          {{ if hasKey .Values "env" }}
-          env: {{ toYaml .Values.env | nindent 10 }}
-          {{ end }}
+          {{- if or (hasKey .Values "plainEnvs") (hasKey .Values "secretEnvs") }}
+          env:
+          {{- if hasKey .Values "plainEnvs" }}
+            {{- range $index, $env := .Values.plainEnvs }}
+            - name: {{ $env.name }}
+              value: {{ tpl ($env.value | toString | quote) $ }}
+            {{- end }}
+          {{- end }}
+          {{- if hasKey .Values "secretEnvs" }}
+            {{- range $index, $env := .Values.secretEnvs }}
+            - name: {{ $env.name }}
+              valueFrom:
+                secretKeyRef:
+                  name: {{ tpl ($env.secretName | toString) $ }}
+                  key: {{ $env.secretKey }}
+            {{- end }}
+          {{- end }}
+          {{- end }}
