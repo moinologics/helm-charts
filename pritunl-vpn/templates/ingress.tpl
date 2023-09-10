@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: pritunl-vpn-dashboard
-  namespace: pritunl-vpn
+  namespace: {{.Values.namespace}}
   annotations:
     ingress.kubernetes.io/rewrite-target: /
     cert-manager.io/cluster-issuer: {{.Values.ingressTlsClusterIssuer}}
