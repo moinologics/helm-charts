@@ -20,8 +20,8 @@ spec:
           secret:
             secretName: {{.Values.envSecretName}}
             items:
-              key: CONTAINER_REGISTERY_HTPASSWD_FILE
-              path: htpasswd
+              - key: CONTAINER_REGISTERY_HTPASSWD_FILE
+                path: htpasswd
       containers:
         - name: {{.Values.name}}
           image: {{.Values.image}}
