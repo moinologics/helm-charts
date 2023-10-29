@@ -1,0 +1,23 @@
+##### deployment values ######
+name: docker-registry
+namespace: default
+port: 5000
+envSecretName: some-secret
+
+##### container values ######
+image: registry:2
+replicaCount: 1
+memoryRequests: 64Mi
+memoryLimits: 2Gi
+cpuRequests: 50m
+cpuLimits: 2000m
+
+##### Ingress values #######
+host: registry.example.com
+tlsSecret: registry-example
+clusterIssuer: letsencrypt
+
+##### Environment values ######
+environment: production
+S3_BUCKET: docker-registry
+S3_REGION: us-east-1
