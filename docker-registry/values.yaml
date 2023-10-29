@@ -16,6 +16,7 @@ cpuLimits: 2000m
 host: registry.example.com
 tlsSecret: registry-example
 clusterIssuer: letsencrypt
+httpMaxBodySize: 1024m
 
 ##### Environment values ######
 environment: production

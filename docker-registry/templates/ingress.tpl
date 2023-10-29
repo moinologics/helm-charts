@@ -7,6 +7,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
     cert-manager.io/cluster-issuer: {{.Values.clusterIssuer}}
     cert-manager.io/private-key-rotation-policy: Always
+    nginx.ingress.kubernetes.io/proxy-body-size: {{.Values.httpMaxBodySize}}
 spec:
   ingressClassName: nginx
   rules:
