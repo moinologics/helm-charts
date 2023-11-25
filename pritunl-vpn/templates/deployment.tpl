@@ -31,9 +31,12 @@ spec:
               protocol: UDP
             - containerPort: 9700
           env:
-            - name: MONGODB_URI
-              value: {{.Values.mongodbUri}}
             - name: REVERSE_PROXY
               value: "true"
             - name: WIREGUARD
               value: "false"
+            - name: MONGODB_URI
+              valueFrom:
+                secretKeyRef:
+                  name: {{.Values.secretName}}
+                  key: {{.Values.mongoDBUriSecretKey}}
