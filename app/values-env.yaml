@@ -6,6 +6,7 @@ envSecretName: some-secret-name
 
 ##### container values ######
 image: nginx
+imagePullPolicy: Always
 replicaCount: 1
 memoryRequests: 64Mi
 memoryLimits: 512Mi

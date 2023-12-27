@@ -15,10 +15,14 @@ spec:
       labels:
         app: {{.Values.name}}
     spec:
+      {{- if hasKey .Values "volumes" }}
+      volumes:
+        {{- .Values.volumes | toYaml | nindent 8 }}
+      {{- end }}
       containers:
         - name: {{.Values.name}}
           image: {{.Values.image}}
-          imagePullPolicy: Always
+          imagePullPolicy: {{ .Values.imagePullPolicy }}
           ports:
             - containerPort: {{.Values.port}}
           resources:
@@ -28,6 +32,10 @@ spec:
             limits:
               memory: {{.Values.memoryLimits}}
               cpu: {{.Values.cpuLimits}}
+          {{- if hasKey .Values "volumeMounts" }}
+          volumeMounts:
+            {{- .Values.volumeMounts | toYaml | nindent 12 }}
+          {{- end }}
           {{- if or (hasKey .Values "plainEnvs") (hasKey .Values "secretEnvs") }}
           env:
           {{- if hasKey .Values "plainEnvs" }}

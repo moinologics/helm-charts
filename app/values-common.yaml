@@ -6,3 +6,11 @@ secretEnvs:
   - name: SECRET_ENV
     secretName: "{{.Values.envSecretName}}"
     secretKey: SECRET_KEY
+
+volumes:
+  - name: example-storage
+    emptyDir: {}
+
+volumeMounts:
+  - name: example-storage
+    mountPath: /data/example
