@@ -7,6 +7,12 @@ secretEnvs:
     secretName: "{{.Values.envSecretName}}"
     secretKey: SECRET_KEY
 
+ingressCors:
+  allow-origin: ""
+  allow-methods: ""
+  # also any other nginx CORS options (without `cors-` prefix) provided here
+  # https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/#enable-cors
+
 volumes:
   - name: example-storage
     emptyDir: {}

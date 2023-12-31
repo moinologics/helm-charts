@@ -3,9 +3,9 @@ entries:
   app:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-12-27T23:50:49.324146+05:30"
+    created: "2023-12-31T18:46:28.228143+05:30"
     description: A Helm chart for Kubernetes
-    digest: c1be60dd5db04e68e1d03ad37db51f7db2c37f27ef7b974707b39d46a19d2a7e
+    digest: 0d7ee7b3a2421ab41eb66ae41db924970e5fb499b5d7ba651a90e4c2f7f655f3
     icon: https://cdn-icons-png.flaticon.com/512/5929/5929385.png
     name: app
     type: application
@@ -15,7 +15,7 @@ entries:
   docker-registry:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-12-27T23:50:49.324475+05:30"
+    created: "2023-12-31T18:46:28.228521+05:30"
     description: A Helm chart for Kubernetes
     digest: 255b8415b707e0320b4d489e9f4f407850599f736c6b2e20ab6444a2d8083027
     icon: https://cdn-icons-png.flaticon.com/512/5929/5929385.png
@@ -26,7 +26,7 @@ entries:
     version: 0.1.1
   pritunl-vpn:
   - apiVersion: v2
-    created: "2023-12-27T23:50:49.324742+05:30"
+    created: "2023-12-31T18:46:28.228868+05:30"
     description: A Helm chart for pritunl vpn
     digest: 941e4a449e496b71c6d7edd30535583ea26972499c64ca8e6a0aee72eca21ca9
     icon: https://pritunl.com/img/logo.png
@@ -35,4 +35,4 @@ entries:
     urls:
     - https://moinologics.github.io/helm-charts/pritunl-vpn-0.0.1.tgz
     version: 0.0.1
-generated: "2023-12-27T23:50:49.323188+05:30"
+generated: "2023-12-31T18:46:28.227322+05:30"

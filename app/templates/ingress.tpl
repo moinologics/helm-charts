@@ -6,6 +6,11 @@ metadata:
   namespace: {{.Values.namespace}}
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
+    {{- if hasKey .Values "ingressCors" }}
+    {{- range $key, $value := .Values.ingressCors }}
+    nginx.ingress.kubernetes.io/cors-{{ $key }}: {{ $value }}
+    {{- end }}
+    {{- end }}
     cert-manager.io/cluster-issuer: {{.Values.clusterIssuer}}
     cert-manager.io/private-key-rotation-policy: Always
 spec:
