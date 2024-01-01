@@ -25,7 +25,7 @@ spec:
           service:
             name: {{.Values.name}}-service
             port:
-              number: {{.Values.port}}
+              number: 80
   tls:
   - hosts:
       - {{.Values.host}}
