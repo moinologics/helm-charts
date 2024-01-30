@@ -1,3 +1,4 @@
+{{ if hasKey .Values "averageUtilization" }}
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
@@ -11,3 +12,4 @@ spec:
     kind: Deployment
     name: {{.Values.name}}-application
   targetCPUUtilizationPercentage: {{.Values.averageUtilization}}
+{{ end }}
